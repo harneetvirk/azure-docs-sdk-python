@@ -1,7 +1,7 @@
 {
   "Name": "azure-mgmt-media",
-  "Version": "10.2.0b1",
-  "DevVersion": null,
+  "Version": "10.2.0a20230116001",
+  "DevVersion": "10.2.0a20230116001",
   "DirectoryPath": "sdk/media/azure-mgmt-media",
   "ServiceDirectory": "media",
   "ReadMePath": "sdk/media/azure-mgmt-media/README.md",
