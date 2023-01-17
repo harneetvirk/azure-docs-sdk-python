@@ -1,7 +1,7 @@
 {
   "Name": "azure-mgmt-reservations",
-  "Version": "2.2.0b1",
-  "DevVersion": null,
+  "Version": "2.2.0a20230117001",
+  "DevVersion": "2.2.0a20230117001",
   "DirectoryPath": "sdk/reservations/azure-mgmt-reservations",
   "ServiceDirectory": "reservations",
   "ReadMePath": "sdk/reservations/azure-mgmt-reservations/README.md",
