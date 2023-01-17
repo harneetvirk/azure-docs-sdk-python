@@ -15,29 +15,41 @@ methods:
   name: begin_create_or_update
   summary: Creates or updates a SIM.
   signature: 'async begin_create_or_update(resource_group_name: str, sim_group_name:
-    str, sim_name: str, parameters: azure.mgmt.mobilenetwork.models._models_py3.Sim,
-    **kwargs: Any) -> azure.core.polling._async_poller.AsyncLROPoller[azure.mgmt.mobilenetwork.models._models_py3.Sim]'
+    str, sim_name: str, parameters: _models.Sim, *, content_type: str = "''application/json''",
+    **kwargs: Any) -> AsyncLROPoller[_models.Sim]'
   parameters:
   - name: resource_group_name
-    description: The name of the resource group. The name is case insensitive.
+    description: 'The name of the resource group. The name is case insensitive.
+
+      Required.'
     isRequired: true
     types:
     - <xref:str>
   - name: sim_group_name
-    description: The name of the SIM Group.
+    description: The name of the SIM Group. Required.
     isRequired: true
     types:
     - <xref:str>
   - name: sim_name
-    description: The name of the SIM.
+    description: The name of the SIM. Required.
     isRequired: true
     types:
     - <xref:str>
   - name: parameters
-    description: Parameters supplied to the create or update SIM operation.
+    description: 'Parameters supplied to the create or update SIM operation. Is either
+      a model
+
+      type or a IO type. Required.'
     isRequired: true
     types:
     - <xref:azure.mgmt.mobilenetwork.models.Sim>
+    - <xref:IO>
+  - name: content_type
+    description: 'Body Parameter content-type. Known values are: ''application/json''.
+
+      Default value is None.'
+    types:
+    - <xref:str>
   - name: cls
     description: A custom type or function that will be passed the direct response
     types:
@@ -77,17 +89,19 @@ methods:
     str, **kwargs: Any) -> azure.core.polling._async_poller.AsyncLROPoller[None]'
   parameters:
   - name: resource_group_name
-    description: The name of the resource group. The name is case insensitive.
+    description: 'The name of the resource group. The name is case insensitive.
+
+      Required.'
     isRequired: true
     types:
     - <xref:str>
   - name: sim_group_name
-    description: The name of the SIM Group.
+    description: The name of the SIM Group. Required.
     isRequired: true
     types:
     - <xref:str>
   - name: sim_name
-    description: The name of the SIM.
+    description: The name of the SIM. Required.
     isRequired: true
     types:
     - <xref:str>
@@ -130,17 +144,19 @@ methods:
     **kwargs: Any) -> azure.mgmt.mobilenetwork.models._models_py3.Sim'
   parameters:
   - name: resource_group_name
-    description: The name of the resource group. The name is case insensitive.
+    description: 'The name of the resource group. The name is case insensitive.
+
+      Required.'
     isRequired: true
     types:
     - <xref:str>
   - name: sim_group_name
-    description: The name of the SIM Group.
+    description: The name of the SIM Group. Required.
     isRequired: true
     types:
     - <xref:str>
   - name: sim_name
-    description: The name of the SIM.
+    description: The name of the SIM. Required.
     isRequired: true
     types:
     - <xref:str>
@@ -149,24 +165,26 @@ methods:
     types:
     - <xref:callable>
   return:
-    description: Sim, or the result of cls(response)
+    description: Sim or the result of cls(response)
     types:
     - <xref:azure.mgmt.mobilenetwork.models.Sim>
   exceptions:
   - type: azure.core.exceptions.HttpResponseError
-- uid: azure.mgmt.mobilenetwork.aio.operations.SimsOperations.list_by_sim_group
-  name: list_by_sim_group
+- uid: azure.mgmt.mobilenetwork.aio.operations.SimsOperations.list_by_group
+  name: list_by_group
   summary: Gets all the SIMs in a SIM group.
-  signature: 'list_by_sim_group(resource_group_name: str, sim_group_name: str, **kwargs:
-    Any) -> AsyncIterable[azure.mgmt.mobilenetwork.models._models_py3.SimListResult]'
+  signature: 'list_by_group(resource_group_name: str, sim_group_name: str, **kwargs:
+    Any) -> AsyncIterable[azure.mgmt.mobilenetwork.models._models_py3.Sim]'
   parameters:
   - name: resource_group_name
-    description: The name of the resource group. The name is case insensitive.
+    description: 'The name of the resource group. The name is case insensitive.
+
+      Required.'
     isRequired: true
     types:
     - <xref:str>
   - name: sim_group_name
-    description: The name of the SIM Group.
+    description: The name of the SIM Group. Required.
     isRequired: true
     types:
     - <xref:str>
@@ -175,10 +193,9 @@ methods:
     types:
     - <xref:callable>
   return:
-    description: An iterator like instance of either SimListResult or the result of
-      cls(response)
+    description: An iterator like instance of either Sim or the result of cls(response)
     types:
-    - <xref:azure.core.async_paging.AsyncItemPaged>[<xref:azure.mgmt.mobilenetwork.models.SimListResult>]
+    - <xref:azure.core.async_paging.AsyncItemPaged>[<xref:azure.mgmt.mobilenetwork.models.Sim>]
   exceptions:
   - type: azure.core.exceptions.HttpResponseError
 attributes:

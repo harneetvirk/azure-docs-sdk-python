@@ -12,43 +12,44 @@ summary: 'AbstractSummaryResult is a result object which contains
 
   New in version 2022-10-01-preview: The *AbstractSummaryResult* model.'
 constructor:
-  syntax: AbstractSummaryResult(**kwargs)
-variables:
-- description: Unique, non-empty document identifier. Required.
-  name: id
-  types:
-  - <xref:str>
-- description: 'If ''language'' is set to ''auto'' for the document in the request
-    this
+  syntax: 'AbstractSummaryResult(**kwargs: Any)'
+attributes:
+- uid: azure.ai.textanalytics.AbstractSummaryResult.detected_language
+  name: detected_language
+  summary: 'If ''language'' is set to ''auto'' for the document in the request this
 
     field will contain the DetectedLanguage for the document.'
-  name: detected_language
-  types:
-  - <xref:Optional>[<xref:azure.ai.textanalytics.DetectedLanguage>]
-- description: 'Warnings encountered while processing document. Results will still
-    be returned
-
-    if there are warnings, but they may not be fully accurate.'
-  name: warnings
-  types:
-  - <xref:list>[<xref:azure.ai.textanalytics.TextAnalyticsWarning>]
-- description: 'If *show_stats=True* was specified in the request this
-
-    field will contain information about the document payload.'
-  name: statistics
-  types:
-  - <xref:Optional>[<xref:azure.ai.textanalytics.TextDocumentStatistics>]
-- description: A list of abstractive summaries. Required.
-  name: summaries
-  types:
-  - <xref:list>[<xref:azure.ai.textanalytics.AbstractiveSummary>]
-- description: 'Boolean check for error item when iterating over list of
+  signature: 'detected_language: Optional[azure.ai.textanalytics._models.DetectedLanguage]
+    = None'
+- uid: azure.ai.textanalytics.AbstractSummaryResult.id
+  name: id
+  summary: Unique, non-empty document identifier. Required.
+  signature: 'id: str'
+- uid: azure.ai.textanalytics.AbstractSummaryResult.is_error
+  name: is_error
+  summary: 'Boolean check for error item when iterating over list of
 
     results. Always False for an instance of a AbstractSummaryResult.'
-  name: is_error
-  types:
-  - <xref:bool>
-- description: The text analysis kind - "AbstractiveSummarization".
+  signature: 'is_error: Literal[False] = False'
+- uid: azure.ai.textanalytics.AbstractSummaryResult.kind
   name: kind
-  types:
-  - <xref:str>
+  summary: The text analysis kind - "AbstractiveSummarization".
+  signature: 'kind: Literal[AbstractiveSummarization] = ''AbstractiveSummarization'''
+- uid: azure.ai.textanalytics.AbstractSummaryResult.statistics
+  name: statistics
+  summary: 'If *show_stats=True* was specified in the request this
+
+    field will contain information about the document payload.'
+  signature: 'statistics: Optional[azure.ai.textanalytics._models.TextDocumentStatistics]
+    = None'
+- uid: azure.ai.textanalytics.AbstractSummaryResult.summaries
+  name: summaries
+  summary: A list of abstractive summaries. Required.
+  signature: 'summaries: List[azure.ai.textanalytics._models.AbstractiveSummary]'
+- uid: azure.ai.textanalytics.AbstractSummaryResult.warnings
+  name: warnings
+  summary: 'Warnings encountered while processing document. Results will still be
+    returned
+
+    if there are warnings, but they may not be fully accurate.'
+  signature: 'warnings: List[azure.ai.textanalytics._models.TextAnalyticsWarning]'

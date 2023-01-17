@@ -7,7 +7,7 @@ inheritances:
 - builtins.object
 summary: Management policy for a certificate.
 constructor:
-  syntax: 'CertificatePolicy(issuer_name: Optional[str] = None, **kwargs: Any)'
+  syntax: 'CertificatePolicy(issuer_name: Optional[str] = None, **kwargs)'
   parameters:
   - name: issuer_name
     description: 'Optional. Name of the referenced issuer object or reserved names;
@@ -120,7 +120,7 @@ constructor:
 methods:
 - uid: azure.keyvault.certificates.CertificatePolicy.get_default
   name: get_default
-  signature: get_default()
+  signature: get_default() -> azure.keyvault.certificates._models.CertificatePolicy
 attributes:
 - uid: azure.keyvault.certificates.CertificatePolicy.certificate_transparency
   name: certificate_transparency

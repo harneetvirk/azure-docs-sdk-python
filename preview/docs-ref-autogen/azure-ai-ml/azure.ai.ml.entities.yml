@@ -2,6 +2,14 @@
 uid: azure.ai.ml.entities
 name: entities
 fullName: azure.ai.ml.entities
+summary: 'Contains entities and SDK objects for Azure Machine Learning SDKv2.
+
+
+
+  Main areas include managing compute targets, creating/managing workspaces and jobs,
+  and submitting/accessing
+
+  model, runs and run output/logging etc.'
 type: import
 classes:
 - azure.ai.ml.entities.AccountKeyConfiguration
@@ -19,6 +27,7 @@ classes:
 - azure.ai.ml.entities.AzureFileDatastore
 - azure.ai.ml.entities.BatchDeployment
 - azure.ai.ml.entities.BatchEndpoint
+- azure.ai.ml.entities.BatchJob
 - azure.ai.ml.entities.BatchRetrySettings
 - azure.ai.ml.entities.BuildContext
 - azure.ai.ml.entities.CertificateConfiguration
@@ -35,15 +44,25 @@ classes:
 - azure.ai.ml.entities.ComputeInstanceSshSettings
 - azure.ai.ml.entities.ComputeSchedules
 - azure.ai.ml.entities.ComputeStartStopSchedule
+- azure.ai.ml.entities.ContainerRegistryCredential
 - azure.ai.ml.entities.CronTrigger
 - azure.ai.ml.entities.CustomerManagedKey
 - azure.ai.ml.entities.Data
 - azure.ai.ml.entities.Datastore
 - azure.ai.ml.entities.DefaultScaleSettings
+- azure.ai.ml.entities.Deployment
+- azure.ai.ml.entities.DiagnoseRequestProperties
+- azure.ai.ml.entities.DiagnoseResponseResult
+- azure.ai.ml.entities.DiagnoseResponseResultValue
+- azure.ai.ml.entities.DiagnoseResult
+- azure.ai.ml.entities.DiagnoseWorkspaceParameters
 - azure.ai.ml.entities.Endpoint
+- azure.ai.ml.entities.EndpointAuthKeys
+- azure.ai.ml.entities.EndpointAuthToken
 - azure.ai.ml.entities.EndpointConnection
 - azure.ai.ml.entities.Environment
 - azure.ai.ml.entities.IdentityConfiguration
+- azure.ai.ml.entities.ImageMetadata
 - azure.ai.ml.entities.InputPort
 - azure.ai.ml.entities.Job
 - azure.ai.ml.entities.JobResourceConfiguration
@@ -57,13 +76,14 @@ classes:
 - azure.ai.ml.entities.ManagedIdentityConfiguration
 - azure.ai.ml.entities.ManagedOnlineDeployment
 - azure.ai.ml.entities.ManagedOnlineEndpoint
-- azure.ai.ml.entities.ManagedServiceIdentity
 - azure.ai.ml.entities.Model
 - azure.ai.ml.entities.NetworkSettings
 - azure.ai.ml.entities.Normal
+- azure.ai.ml.entities.NotebookAccessKeys
 - azure.ai.ml.entities.OnlineDeployment
 - azure.ai.ml.entities.OnlineEndpoint
 - azure.ai.ml.entities.OnlineRequestSettings
+- azure.ai.ml.entities.OnlineScaleSettings
 - azure.ai.ml.entities.Parallel
 - azure.ai.ml.entities.ParallelComponent
 - azure.ai.ml.entities.ParallelTask
@@ -83,7 +103,7 @@ classes:
 - azure.ai.ml.entities.RecurrencePattern
 - azure.ai.ml.entities.RecurrenceTrigger
 - azure.ai.ml.entities.Registry
-- azure.ai.ml.entities.RegistryRegionArmDetails
+- azure.ai.ml.entities.RegistryRegionDetails
 - azure.ai.ml.entities.Resource
 - azure.ai.ml.entities.ResourceConfiguration
 - azure.ai.ml.entities.ResourceRequirementsSettings
@@ -108,7 +128,6 @@ classes:
 - azure.ai.ml.entities.UnsupportedCompute
 - azure.ai.ml.entities.Usage
 - azure.ai.ml.entities.UsageName
-- azure.ai.ml.entities.UserAssignedIdentity
 - azure.ai.ml.entities.UserIdentityConfiguration
 - azure.ai.ml.entities.UsernamePasswordConfiguration
 - azure.ai.ml.entities.ValidationResult
@@ -118,8 +137,7 @@ classes:
 - azure.ai.ml.entities.Workspace
 - azure.ai.ml.entities.WorkspaceConnection
 - azure.ai.ml.entities.WorkspaceKeys
-modules:
-- azure.ai.ml.entities.job_errors
+- azure.ai.ml.entities.WorkspaceModelReference
 enums:
 - azure.ai.ml.entities.ComputePowerAction
 - azure.ai.ml.entities.CreatedByType
