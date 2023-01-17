@@ -2379,7 +2379,8 @@
         "name": "azure-mgmt-botservice",
         "install_type": "pypi",
         "prefer_source_distribution": "true",
-        "version": "==1.0.0"
+        "version": "==2.0.0",
+        "extra_index_url": "https://pkgs.dev.azure.com/azure-sdk/public/_packaging/azure-sdk-for-python/pypi/simple/"
       }
     },
     {
@@ -3076,6 +3077,21 @@
         "install_type": "pypi",
         "prefer_source_distribution": "true",
         "version": "==1.0.0"
+      },
+      "exclude_path": [
+        "test*",
+        "example*",
+        "sample*",
+        "doc*"
+      ]
+    },
+    {
+      "package_info": {
+        "name": "azure-mgmt-loadtestservice",
+        "install_type": "pypi",
+        "prefer_source_distribution": "true",
+        "version": "==1.0.0",
+        "extra_index_url": "https://pkgs.dev.azure.com/azure-sdk/public/_packaging/azure-sdk-for-python/pypi/simple/"
       },
       "exclude_path": [
         "test*",
