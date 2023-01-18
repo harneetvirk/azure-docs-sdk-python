@@ -15,8 +15,8 @@ summary: 'A client to interact with a specific file, although that file may not 
 constructor:
   syntax: 'ShareFileClient(account_url: str, share_name: str, file_path: str, snapshot:
     Optional[Union[str, Dict[str, Any]]] = None, credential: Optional[Union[str, Dict[str,
-    str], AzureNamedKeyCredential, AzureSasCredential, "TokenCredential"]] # pylint:
-    disable=line-too-long = None, **kwargs: Any)'
+    str], AzureNamedKeyCredential, AzureSasCredential, TokenCredential]] = None, **kwargs:
+    Any)'
   parameters:
   - name: account_url
     description: 'The URI to the storage account. In order to create a client given
@@ -156,11 +156,11 @@ methods:
   - "Acquiring a lease on a file.<!--[!code-python[Main](les\\file_samples_client.py\
     \ )]-->\n\n<!-- literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"\
     dupnames\": [], \"backrefs\": [], \"source\": \"D:\\\\a\\\\_work\\\\1\\\\s\\\\\
-    dist_temp\\\\72\\\\azure-storage-file-share-12.10.0b1\\\\samples\\\\file_samples_client.py\"\
-    , \"xml:space\": \"preserve\", \"force\": false, \"language\": \"python\", \"\
-    highlight_args\": {\"linenostart\": 1}, \"linenos\": false} -->\n\n````python\n\
-    \n   source_file.create_file(1024)\n   lease = source_file.acquire_lease()\n \
-    \  source_file.upload_file(b'hello world', lease=lease)\n\n   lease.release()\n\
+    dist_temp\\\\72\\\\azure-storage-file-share-12.11.0a20230116001\\\\samples\\\\\
+    file_samples_client.py\", \"xml:space\": \"preserve\", \"force\": false, \"language\"\
+    : \"python\", \"highlight_args\": {\"linenostart\": 1}, \"linenos\": false} -->\n\
+    \n````python\n\n   source_file.create_file(1024)\n   lease = source_file.acquire_lease()\n\
+    \   source_file.upload_file(b'hello world', lease=lease)\n\n   lease.release()\n\
     \n   ````\n"
 - uid: azure.storage.fileshare.ShareFileClient.clear_range
   name: clear_range
@@ -224,7 +224,7 @@ methods:
 - uid: azure.storage.fileshare.ShareFileClient.close_handle
   name: close_handle
   summary: Close an open file handle.
-  signature: 'close_handle(handle: Union[str, HandleItem], **kwargs: Any) -> Dict[str,
+  signature: 'close_handle(handle: Union[str, Handle], **kwargs: Any) -> Dict[str,
     int]'
   parameters:
   - name: handle
@@ -358,7 +358,7 @@ methods:
   - "Create a file.<!--[!code-python[Main](les\\file_samples_client.py )]-->\n\n<!--\
     \ literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"dupnames\": [],\
     \ \"backrefs\": [], \"source\": \"D:\\\\a\\\\_work\\\\1\\\\s\\\\dist_temp\\\\\
-    72\\\\azure-storage-file-share-12.10.0b1\\\\samples\\\\file_samples_client.py\"\
+    72\\\\azure-storage-file-share-12.11.0a20230116001\\\\samples\\\\file_samples_client.py\"\
     , \"xml:space\": \"preserve\", \"force\": false, \"language\": \"python\", \"\
     highlight_args\": {\"linenostart\": 1}, \"linenos\": false} -->\n\n````python\n\
     \n   # Create and allocate bytes for the file (no content added yet)\n   my_allocated_file.create_file(size=100)\n\
@@ -392,7 +392,7 @@ methods:
   - "Delete a file.<!--[!code-python[Main](les\\file_samples_client.py )]-->\n\n<!--\
     \ literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"dupnames\": [],\
     \ \"backrefs\": [], \"source\": \"D:\\\\a\\\\_work\\\\1\\\\s\\\\dist_temp\\\\\
-    72\\\\azure-storage-file-share-12.10.0b1\\\\samples\\\\file_samples_client.py\"\
+    72\\\\azure-storage-file-share-12.11.0a20230116001\\\\samples\\\\file_samples_client.py\"\
     , \"xml:space\": \"preserve\", \"force\": false, \"language\": \"python\", \"\
     highlight_args\": {\"linenostart\": 1}, \"linenos\": false} -->\n\n````python\n\
     \n   my_file.delete_file()\n\n   ````\n"
@@ -478,7 +478,7 @@ methods:
   - "Download a file.<!--[!code-python[Main](les\\file_samples_client.py )]-->\n\n\
     <!-- literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"dupnames\"\
     : [], \"backrefs\": [], \"source\": \"D:\\\\a\\\\_work\\\\1\\\\s\\\\dist_temp\\\
-    \\72\\\\azure-storage-file-share-12.10.0b1\\\\samples\\\\file_samples_client.py\"\
+    \\72\\\\azure-storage-file-share-12.11.0a20230116001\\\\samples\\\\file_samples_client.py\"\
     , \"xml:space\": \"preserve\", \"force\": false, \"language\": \"python\", \"\
     highlight_args\": {\"linenostart\": 1}, \"linenos\": false} -->\n\n````python\n\
     \n   with open(DEST_FILE, \"wb\") as data:\n       stream = my_file.download_file()\n\
@@ -488,8 +488,8 @@ methods:
   summary: Create ShareFileClient from a Connection String.
   signature: 'from_connection_string(conn_str: str, share_name: str, file_path: str,
     snapshot: Optional[Union[str, Dict[str, Any]]] = None, credential: Optional[Union[str,
-    Dict[str, str], AzureNamedKeyCredential, AzureSasCredential, "TokenCredential"]]
-    # pylint: disable=line-too-long = None, **kwargs: Any) -> ShareFileClient'
+    Dict[str, str], AzureNamedKeyCredential, AzureSasCredential, TokenCredential]]
+    = None, **kwargs: Any) -> typing_extensions.Self'
   parameters:
   - name: conn_str
     description: A connection string to an Azure Storage account.
@@ -544,7 +544,7 @@ methods:
   - "Creates the file client with connection string.<!--[!code-python[Main](les\\\
     file_samples_hello_world.py )]-->\n\n<!-- literal_block {\"ids\": [], \"classes\"\
     : [], \"names\": [], \"dupnames\": [], \"backrefs\": [], \"source\": \"D:\\\\\
-    a\\\\_work\\\\1\\\\s\\\\dist_temp\\\\72\\\\azure-storage-file-share-12.10.0b1\\\
+    a\\\\_work\\\\1\\\\s\\\\dist_temp\\\\72\\\\azure-storage-file-share-12.11.0a20230116001\\\
     \\samples\\\\file_samples_hello_world.py\", \"xml:space\": \"preserve\", \"force\"\
     : false, \"language\": \"python\", \"highlight_args\": {\"linenostart\": 1}, \"\
     linenos\": false} -->\n\n````python\n\n   from azure.storage.fileshare import\
@@ -556,8 +556,7 @@ methods:
     exist.
   signature: 'from_file_url(file_url: str, snapshot: Optional[Union[str, Dict[str,
     Any]]] = None, credential: Optional[Union[str, Dict[str, str], AzureNamedKeyCredential,
-    AzureSasCredential, "TokenCredential"]] # pylint: disable=line-too-long = None,
-    **kwargs: Any) -> ShareFileClient'
+    AzureSasCredential, TokenCredential]] = None, **kwargs: Any) -> typing_extensions.Self'
   parameters:
   - name: file_url
     description: The full URI to the file.
@@ -723,9 +722,9 @@ methods:
     types:
     - <xref:int>
   return:
-    description: An auto-paging iterable of HandleItem
+    description: An auto-paging iterable of Handle
     types:
-    - <xref:azure.core.paging.ItemPaged>[<xref:azure.storage.fileshare.HandleItem>]
+    - <xref:azure.core.paging.ItemPaged>[<xref:azure.storage.fileshare.Handle>]
 - uid: azure.storage.fileshare.ShareFileClient.rename_file
   name: rename_file
   summary: "Rename the source file.\n\n:paramtype file_attributes:~azure.storage.fileshare.NTFSAttributes\
@@ -1087,14 +1086,14 @@ methods:
   - "Copy a file from a URL<!--[!code-python[Main](les\\file_samples_client.py )]-->\n\
     \n<!-- literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"dupnames\"\
     : [], \"backrefs\": [], \"source\": \"D:\\\\a\\\\_work\\\\1\\\\s\\\\dist_temp\\\
-    \\72\\\\azure-storage-file-share-12.10.0b1\\\\samples\\\\file_samples_client.py\"\
+    \\72\\\\azure-storage-file-share-12.11.0a20230116001\\\\samples\\\\file_samples_client.py\"\
     , \"xml:space\": \"preserve\", \"force\": false, \"language\": \"python\", \"\
     highlight_args\": {\"linenostart\": 1}, \"linenos\": false} -->\n\n````python\n\
     \n   destination_file.start_copy_from_url(source_url=source_url)\n\n   ````\n"
 - uid: azure.storage.fileshare.ShareFileClient.upload_file
   name: upload_file
-  summary: "Uploads a new file.\n\n   param Any data:\n      Content of the file.\n\
-    \n   param int length:\n      Length of the file in bytes. Specify its maximum\
+  summary: "Uploads a new file.\n\n   param data:\n      Content of the file.\n\n\
+    \   param int length:\n      Length of the file in bytes. Specify its maximum\
     \ size, up to 1 TiB.\n\n   param file_attributes:\n      The file system attributes\
     \ for files and directories.\n      If not set, the default value would be \"\
     None\" and the attributes will be set to \"Archive\".\n      Here is an example\
@@ -1114,11 +1113,11 @@ methods:
     \ for the\n      directory/file. Note: Only one of the x-ms-file-permission or\n\
     \      x-ms-file-permission-key should be specified.\n\n   type permission_key:\n\
     \      str"
-  signature: 'upload_file(data: Any, length: Optional[int] = None, file_attributes:
-    Union[str, NTFSAttributes] = ''none'', file_creation_time: Optional[Union[str,
-    datetime]] = ''now'', file_last_write_time: Optional[Union[str, datetime]] = ''now'',
-    file_permission: Optional[str] = None, permission_key: Optional[str] = None, **kwargs:
-    Any) -> Dict[str, Any]'
+  signature: 'upload_file(data: Union[bytes, str, Iterable, IO], length: Optional[int]
+    = None, file_attributes: Union[str, NTFSAttributes] = ''none'', file_creation_time:
+    Optional[Union[str, datetime.datetime]] = ''now'', file_last_write_time: Optional[Union[str,
+    datetime.datetime]] = ''now'', file_permission: Optional[str] = None, permission_key:
+    Optional[str] = None, **kwargs) -> Dict[str, Any]'
   parameters:
   - name: file_change_time
     description: "Change time for the file. If not specified, change time will be\
@@ -1148,11 +1147,11 @@ methods:
       \n## Example:Upload a file.<!--[!code-python[Main](les\\file_samples_client.py\
       \ )]-->\n\n<!-- literal_block {\"ids\": [], \"classes\": [], \"names\": [],\
       \ \"dupnames\": [], \"backrefs\": [], \"source\": \"D:\\\\a\\\\_work\\\\1\\\\\
-      s\\\\dist_temp\\\\72\\\\azure-storage-file-share-12.10.0b1\\\\samples\\\\file_samples_client.py\"\
-      , \"xml:space\": \"preserve\", \"force\": false, \"language\": \"python\", \"\
-      highlight_args\": {\"linenostart\": 1}, \"linenos\": false} -->\n\n````python\n\
-      \n   with open(SOURCE_FILE, \"rb\") as source:\n       my_file.upload_file(source)\n\
-      \n   ````"
+      s\\\\dist_temp\\\\72\\\\azure-storage-file-share-12.11.0a20230116001\\\\samples\\\
+      \\file_samples_client.py\", \"xml:space\": \"preserve\", \"force\": false, \"\
+      language\": \"python\", \"highlight_args\": {\"linenostart\": 1}, \"linenos\"\
+      : false} -->\n\n````python\n\n   with open(SOURCE_FILE, \"rb\") as source:\n\
+      \       my_file.upload_file(source)\n\n   ````"
 - uid: azure.storage.fileshare.ShareFileClient.upload_range
   name: upload_range
   summary: Upload a range of bytes to a file.

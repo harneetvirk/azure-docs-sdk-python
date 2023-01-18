@@ -23,6 +23,14 @@ constructor:
     isRequired: true
     types:
     - <xref:Union>[<xref:TokenCredential,>
+  - name: api_version
+    description: 'Azure Communication Email API version.
+
+      Default value is "2021-10-01-preview".
+
+      Note that overriding this default value may result in unsupported behavior.'
+    types:
+    - <xref:str>
   - name: credential
 methods:
 - uid: azure.communication.email.EmailClient.from_connection_string
@@ -42,7 +50,8 @@ methods:
 - uid: azure.communication.email.EmailClient.get_send_status
   name: get_send_status
   summary: Gets the status of a message sent previously.
-  signature: 'get_send_status(message_id: str, **kwargs) -> azure.communication.email._generated.models._models_py3.SendStatusResult'
+  signature: 'get_send_status(message_id: str, **kwargs) -> collections.abc.MutableMapping[str,
+    Any]'
   parameters:
   - name: message_id
     description: System generated message id (GUID) returned from a previous call
@@ -51,21 +60,71 @@ methods:
     types:
     - <xref:str>
   return:
-    description: SendStatusResult
+    description: JSON object
     types:
-    - <xref:azure.communication.email.models.SendStatusResult>
+    - <xref:JSON>
+  examples:
+  - "<!-- literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"dupnames\"\
+    : [], \"backrefs\": [], \"xml:space\": \"preserve\", \"force\": false, \"language\"\
+    : \"python\", \"highlight_args\": {}, \"linenos\": false} -->\n\n````python\n\n\
+    \   # response body\n   response == {\n       \"messageId\": \"str\",  # System\
+    \ generated id of an email message sent.\n         Required.\n       \"status\"\
+    : \"str\"  # The type indicating the status of a request. Required.\n        \
+    \ Known values are: \"queued\", \"outForDelivery\", and \"dropped\".\n   }\n \
+    \  ````\n"
 - uid: azure.communication.email.EmailClient.send
   name: send
   summary: Queues an email message to be sent to one or more recipients.
-  signature: 'send(email_message: azure.communication.email._generated.models._models_py3.EmailMessage,
-    **kwargs) -> azure.communication.email._generated.models._patch.SendEmailResult'
+  signature: 'send(email_message: Union[collections.abc.MutableMapping[str, Any],
+    IO], **kwargs) -> collections.abc.MutableMapping[str, Any]'
   parameters:
   - name: email_message
-    description: The message payload for sending an email.
+    description: The message payload for sending an email. Required.
     isRequired: true
     types:
-    - <xref:azure.communication.email.models.EmailMessage>
+    - <xref:JSON>
   return:
-    description: SendEmailResult
+    description: JSON object
     types:
-    - <xref:azure.communication.email.models.SendEmailResult>
+    - <xref:JSON>
+  examples:
+  - "<!-- literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"dupnames\"\
+    : [], \"backrefs\": [], \"xml:space\": \"preserve\", \"force\": false, \"language\"\
+    : \"python\", \"highlight_args\": {}, \"linenos\": false} -->\n\n````python\n\n\
+    \   # JSON input template you can fill out and use as your body input.\n   email_message\
+    \ = {\n       \"content\": {\n           \"subject\": \"str\",  # Subject of the\
+    \ email message. Required.\n           \"html\": \"str\",  # Optional. Html version\
+    \ of the email message.\n           \"plainText\": \"str\"  # Optional. Plain\
+    \ text version of the email\n             message.\n       },\n       \"recipients\"\
+    : {\n           \"to\": [\n               {\n                   \"email\": \"\
+    str\",  # Email address. Required.\n                   \"displayName\": \"str\"\
+    \  # Optional. Email display name.\n               }\n           ],\n        \
+    \   \"cc\": [\n               {\n                   \"email\": \"str\",  # Email\
+    \ address. Required.\n                   \"displayName\": \"str\"  # Optional.\
+    \ Email display name.\n               }\n           ],\n           \"bcc\": [\n\
+    \               {\n                   \"email\": \"str\",  # Email address. Required.\n\
+    \                   \"displayName\": \"str\"  # Optional. Email display name.\n\
+    \               }\n           ]\n       },\n       \"sender\": \"str\",  # Sender\
+    \ email address from a verified domain. Required.\n       \"attachments\": [\n\
+    \           {\n               \"attachmentType\": \"str\",  # The type of attachment\
+    \ file.\n                 Required. Known values are: \"avi\", \"bmp\", \"doc\"\
+    , \"docm\", \"docx\", \"gif\",\n                 \"jpeg\", \"mp3\", \"one\", \"\
+    pdf\", \"png\", \"ppsm\", \"ppsx\", \"ppt\", \"pptm\",\n                 \"pptx\"\
+    , \"pub\", \"rpmsg\", \"rtf\", \"tif\", \"txt\", \"vsd\", \"wav\", \"wma\", \"\
+    xls\",\n                 \"xlsb\", \"xlsm\", and \"xlsx\".\n               \"\
+    contentBytesBase64\": \"str\",  # Base64 encoded contents of\n               \
+    \  the attachment. Required.\n               \"name\": \"str\"  # Name of the\
+    \ attachment. Required.\n           }\n       ],\n       \"disableUserEngagementTracking\"\
+    : bool,  # Optional. Indicates whether user\n         engagement tracking should\
+    \ be disabled for this request if the resource-level\n         user engagement\
+    \ tracking setting was already enabled in the control plane.\n       \"headers\"\
+    : [\n           {\n               \"name\": \"str\",  # Header name. Required.\n\
+    \               \"value\": \"str\"  # Header value. Required.\n           }\n\
+    \       ],\n       \"importance\": \"normal\",  # Optional. Default value is \"\
+    normal\". The\n         importance type for the email. Known values are: \"high\"\
+    , \"normal\", and \"low\".\n       \"replyTo\": [\n           {\n            \
+    \   \"email\": \"str\",  # Email address. Required.\n               \"displayName\"\
+    : \"str\"  # Optional. Email display name.\n           }\n       ]\n   }\n\n \
+    \  # response body for status code(s): 200\n   response == {\n       \"messageId\"\
+    : \"str\",  # System generated id of an email message sent. Required.\n   }\n\
+    \   ````\n"

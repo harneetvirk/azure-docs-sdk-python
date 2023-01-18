@@ -93,6 +93,9 @@ attributes:
 - uid: azure.cosmos.http_constants.HttpHeaders.Continuation
   name: Continuation
   signature: Continuation = 'x-ms-continuation'
+- uid: azure.cosmos.http_constants.HttpHeaders.CorrelatedActivityId
+  name: CorrelatedActivityId
+  signature: CorrelatedActivityId = 'x-ms-cosmos-correlated-activityid'
 - uid: azure.cosmos.http_constants.HttpHeaders.CurrentEntityCount
   name: CurrentEntityCount
   signature: CurrentEntityCount = 'x-ms-root-entity-current-count'

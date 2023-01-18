@@ -13,9 +13,10 @@ constructor:
     = None, network_settings: Optional[azure.ai.ml.entities._compute.compute.NetworkSettings]
     = None, ssh_settings: Optional[azure.ai.ml.entities._compute.compute_instance.ComputeInstanceSshSettings]
     = None, schedules: Optional[azure.ai.ml.entities._compute._schedule.ComputeSchedules]
-    = None, identity: Optional[azure.ai.ml.entities._compute._identity.IdentityConfiguration]
-    = None, idle_time_before_shutdown: Optional[str] = None, setup_scripts: Optional[azure.ai.ml.entities._compute._setup_scripts.SetupScripts]
-    = None, **kwargs)'
+    = None, identity: Optional[azure.ai.ml.entities._credentials.IdentityConfiguration]
+    = None, idle_time_before_shutdown: Optional[str] = None, idle_time_before_shutdown_minutes:
+    Optional[int] = None, setup_scripts: Optional[azure.ai.ml.entities._compute._setup_scripts.SetupScripts]
+    = None, enable_node_public_ip: bool = True, **kwargs)'
   parameters:
   - name: name
     description: Name of the compute
@@ -85,13 +86,34 @@ constructor:
     types:
     - <xref:azure.ai.ml.entities.IdentityConfiguration>, <xref:optional>
   - name: idle_time_before_shutdown
-    description: 'Stops compute instance after user defined period of
+    description: 'Deprecated. Use :param: *idle_time_before_shutdown_minutes* instead.
 
-      inactivity. Time is defined in ISO8601 format. Minimum is 15 min, maximum is
-      3 days.'
+      Stops compute instance after user defined period of inactivity.
+
+      Time is defined in ISO8601 format. Minimum is 15 min, maximum is 3 days.'
     isRequired: true
     types:
     - <xref:Optional>[<xref:str>], <xref:optional>
+  - name: idle_time_before_shutdown_minutes
+    description: 'Stops compute instance after a user defined period of
+
+      inactivity in minutes. Minimum is 15 min, maximum is 3 days.'
+    isRequired: true
+    types:
+    - <xref:Optional>[<xref:int>], <xref:optional>
+  - name: enable_node_public_ip
+    description: 'Enable or disable node public IP address provisioning. Possible
+      values are:
+
+      True - Indicates that the compute nodes will have public IPs provisioned.
+
+      False - Indicates that the compute nodes will have a private endpoint and no
+      public IPs.
+
+      Default Value: True.'
+    isRequired: true
+    types:
+    - <xref:Optional>[<xref:bool>], <xref:optional>
   - name: setup_scripts
     description: Details of customized scripts to execute for setting up the cluster.
     isRequired: true
@@ -113,6 +135,14 @@ attributes:
     return: The last operation.
 
     rtype: str'
+- uid: azure.ai.ml.entities.ComputeInstance.os_image_metadata
+  name: os_image_metadata
+  summary: 'Metadata about the operating system image for this compute instance.
+
+
+    return: Operating system image metadata.
+
+    rtype: ImageMetadata'
 - uid: azure.ai.ml.entities.ComputeInstance.services
   name: services
   summary: 'The services for the compute instance.
