@@ -3,7 +3,7 @@ title:
 keywords: Azure, python, SDK, API, azure-mgmt-kusto, kusto
 author: lmazuel
 ms.author: lmazuel
-ms.date: 12/28/2022
+ms.date: 01/20/2023
 ms.topic: reference
 ms.devlang: python
 ms.service: kusto
