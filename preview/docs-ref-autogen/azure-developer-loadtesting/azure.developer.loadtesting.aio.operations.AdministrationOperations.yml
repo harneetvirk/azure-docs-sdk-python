@@ -1,0 +1,54 @@
+### YamlMime:PythonClass
+uid: azure.developer.loadtesting.aio.operations.AdministrationOperations
+name: AdministrationOperations
+fullName: azure.developer.loadtesting.aio.operations.AdministrationOperations
+module: azure.developer.loadtesting.aio.operations
+inheritances:
+- azure.developer.loadtesting.aio.operations._operations.AdministrationOperations
+summary: for performing the operations on test
+constructor:
+  syntax: AdministrationOperations(*args, **kwargs)
+methods:
+- uid: azure.developer.loadtesting.aio.operations.AdministrationOperations.begin_upload_test_file
+  name: begin_upload_test_file
+  summary: Upload file to the test
+  signature: 'begin_upload_test_file(test_id: str, file_name: str, body: IO, *, poll_for_validation_status:
+    bool = True, file_type: Optional[str] = None, **kwargs: Any) -> azure.developer.loadtesting.aio.operations._patch.AsyncLoadTestingLROPoller'
+  parameters:
+  - name: test_id
+    description: Unique id for the test
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: file_name
+    description: Name of the file to be uploaded
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: body
+    description: File content to be uploaded
+    isRequired: true
+    types:
+    - <xref:IO>
+  - name: file_type
+    description: Type of the file to be uploaded
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: poll_for_validation_status
+    description: If true, polls for validation status of the file, else does not
+    isRequired: true
+    types:
+    - <xref:bool>
+  - name: cls
+    description: A custom type or function that will be passed the direct response
+    types:
+    - <xref:callable>
+  return:
+    description: An instance of LROPoller object to check the validation status of
+      file
+    types:
+    - <xref:azure.core.polling.LROPoller>
+  exceptions:
+  - type: azure.core.exceptions.HttpResponseError
+  - type: azure.core.exceptions.ResourceNotFoundError

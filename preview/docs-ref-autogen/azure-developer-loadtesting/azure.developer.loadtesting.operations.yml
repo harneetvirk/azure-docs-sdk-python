@@ -4,7 +4,6 @@ name: operations
 fullName: azure.developer.loadtesting.operations
 type: import
 classes:
-- azure.developer.loadtesting.operations.AppComponentOperations
-- azure.developer.loadtesting.operations.ServerMetricsOperations
-- azure.developer.loadtesting.operations.TestOperations
+- azure.developer.loadtesting.operations.AdministrationOperations
+- azure.developer.loadtesting.operations.LoadTestingLROPoller
 - azure.developer.loadtesting.operations.TestRunOperations

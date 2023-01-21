@@ -1,0 +1,45 @@
+### YamlMime:PythonClass
+uid: azure.developer.loadtesting.aio.operations.AsyncLoadTestingLROPoller
+name: AsyncLoadTestingLROPoller
+fullName: azure.developer.loadtesting.aio.operations.AsyncLoadTestingLROPoller
+module: azure.developer.loadtesting.aio.operations
+inheritances:
+- azure.core.polling._async_poller.AsyncLROPoller
+summary: Async poller for long-running operations.
+constructor:
+  syntax: 'AsyncLoadTestingLROPoller(client: Any, initial_response: Any, deserialization_callback:
+    Callable, polling_method: azure.core.polling._async_poller.AsyncPollingMethod[PollingReturnType])'
+  parameters:
+  - name: client
+    description: A pipeline service client
+    isRequired: true
+    types:
+    - <xref:azure.core.PipelineClient>
+  - name: initial_response
+    description: The initial call response
+    isRequired: true
+    types:
+    - <xref:azure.core.pipeline.PipelineResponse>
+  - name: deserialization_callback
+    description: 'A callback that takes a Response and return a deserialized object.
+
+      If a subclass of Model is given, this passes "deserialize" as callback.'
+    isRequired: true
+    types:
+    - <xref:callable>
+    - <xref:msrest.serialization.Model>
+  - name: polling_method
+    description: The polling strategy to adopt
+    isRequired: true
+    types:
+    - <xref:azure.core.polling.AsyncPollingMethod>
+methods:
+- uid: azure.developer.loadtesting.aio.operations.AsyncLoadTestingLROPoller.get_initial_response
+  name: get_initial_response
+  summary: Return the result of the initial operation.
+  signature: get_initial_response() -> Any
+  return:
+    description: The result of the initial operation.
+  exceptions:
+  - type: azure.core.exceptions.HttpResponseError
+    description: Server problem with the query.

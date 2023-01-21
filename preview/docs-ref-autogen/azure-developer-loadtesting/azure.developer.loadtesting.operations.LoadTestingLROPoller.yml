@@ -1,0 +1,45 @@
+### YamlMime:PythonClass
+uid: azure.developer.loadtesting.operations.LoadTestingLROPoller
+name: LoadTestingLROPoller
+fullName: azure.developer.loadtesting.operations.LoadTestingLROPoller
+module: azure.developer.loadtesting.operations
+inheritances:
+- azure.core.polling._poller.LROPoller
+summary: LoadTesting Poller for long-running operations.
+constructor:
+  syntax: 'LoadTestingLROPoller(client: Any, initial_response: Any, deserialization_callback:
+    Callable, polling_method: PollingMethod[PollingReturnType])'
+  parameters:
+  - name: client
+    description: A pipeline service client
+    isRequired: true
+    types:
+    - <xref:azure.core.PipelineClient>
+  - name: initial_response
+    description: The initial call response
+    isRequired: true
+    types:
+    - <xref:azure.core.pipeline.PipelineResponse>
+  - name: deserialization_callback
+    description: 'A callback that takes a Response and return a deserialized object.
+
+      If a subclass of Model is given, this passes "deserialize" as callback.'
+    isRequired: true
+    types:
+    - <xref:callable>
+    - <xref:msrest.serialization.Model>
+  - name: polling_method
+    description: The polling strategy to adopt
+    isRequired: true
+    types:
+    - <xref:azure.core.polling.PollingMethod>
+methods:
+- uid: azure.developer.loadtesting.operations.LoadTestingLROPoller.get_initial_response
+  name: get_initial_response
+  summary: Return the result of the initial operation.
+  signature: get_initial_response() -> Any
+  return:
+    description: The result of the initial operation.
+  exceptions:
+  - type: azure.core.exceptions.HttpResponseError
+    description: Server problem with the query.

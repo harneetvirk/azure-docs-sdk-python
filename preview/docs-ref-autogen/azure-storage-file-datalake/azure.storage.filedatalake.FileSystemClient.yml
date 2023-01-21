@@ -17,8 +17,8 @@ summary: 'A client to interact with a specific file system, even if that file sy
   or <xref:azure.storage.filedatalake.FileSystemClient.get_file_client> functions.'
 constructor:
   syntax: 'FileSystemClient(account_url: str, file_system_name: str, credential: Optional[Union[str,
-    Dict[str, str], AzureNamedKeyCredential, AzureSasCredential, "TokenCredential"]]
-    # pylint: disable=line-too-long = None, **kwargs: Any)'
+    Dict[str, str], AzureNamedKeyCredential, AzureSasCredential, TokenCredential]]
+    = None, **kwargs: Any)'
   parameters:
   - name: account_url
     description: The URI to the storage account.
@@ -77,10 +77,10 @@ examples:
 - "Get a FileSystemClient from an existing DataLakeServiceClient.<!--[!code-python[Main](les\\\
   datalake_samples_file_system.py )]-->\n\n<!-- literal_block {\"ids\": [], \"classes\"\
   : [], \"names\": [], \"dupnames\": [], \"backrefs\": [], \"source\": \"D:\\\\a\\\
-  \\_work\\\\1\\\\s\\\\dist_temp\\\\61\\\\azure-storage-file-datalake-12.9.0b1\\\\\
-  samples\\\\datalake_samples_file_system.py\", \"xml:space\": \"preserve\", \"force\"\
-  : false, \"language\": \"python\", \"highlight_args\": {\"linenostart\": 1}, \"\
-  linenos\": false} -->\n\n````python\n\n   # Instantiate a DataLakeServiceClient\
+  \\_work\\\\1\\\\s\\\\dist_temp\\\\61\\\\azure-storage-file-datalake-12.10.0a20230119003\\\
+  \\samples\\\\datalake_samples_file_system.py\", \"xml:space\": \"preserve\", \"\
+  force\": false, \"language\": \"python\", \"highlight_args\": {\"linenostart\":\
+  \ 1}, \"linenos\": false} -->\n\n````python\n\n   # Instantiate a DataLakeServiceClient\
   \ using a connection string\n   from azure.storage.filedatalake import DataLakeServiceClient\n\
   \   datalake_service_client = DataLakeServiceClient.from_connection_string(self.connection_string)\n\
   \n   # Instantiate a FileSystemClient\n   file_system_client = datalake_service_client.get_file_system_client(\"\
@@ -162,12 +162,12 @@ methods:
   - "Acquiring a lease on the file system.<!--[!code-python[Main](les\\datalake_samples_file_system.py\
     \ )]-->\n\n<!-- literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"\
     dupnames\": [], \"backrefs\": [], \"source\": \"D:\\\\a\\\\_work\\\\1\\\\s\\\\\
-    dist_temp\\\\61\\\\azure-storage-file-datalake-12.9.0b1\\\\samples\\\\datalake_samples_file_system.py\"\
-    , \"xml:space\": \"preserve\", \"force\": false, \"language\": \"python\", \"\
-    highlight_args\": {\"linenostart\": 1}, \"linenos\": false} -->\n\n````python\n\
-    \n   # Acquire a lease on the file system\n   lease = file_system_client.acquire_lease()\n\
-    \n   # Delete file system by passing in the lease\n   file_system_client.delete_file_system(lease=lease)\n\
-    \n   ````\n"
+    dist_temp\\\\61\\\\azure-storage-file-datalake-12.10.0a20230119003\\\\samples\\\
+    \\datalake_samples_file_system.py\", \"xml:space\": \"preserve\", \"force\": false,\
+    \ \"language\": \"python\", \"highlight_args\": {\"linenostart\": 1}, \"linenos\"\
+    : false} -->\n\n````python\n\n   # Acquire a lease on the file system\n   lease\
+    \ = file_system_client.acquire_lease()\n\n   # Delete file system by passing in\
+    \ the lease\n   file_system_client.delete_file_system(lease=lease)\n\n   ````\n"
 - uid: azure.storage.filedatalake.FileSystemClient.close
   name: close
   summary: 'This method is to close the sockets opened by the client.
@@ -322,11 +322,11 @@ methods:
   - "Create directory in the file system.<!--[!code-python[Main](les\\datalake_samples_file_system.py\
     \ )]-->\n\n<!-- literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"\
     dupnames\": [], \"backrefs\": [], \"source\": \"D:\\\\a\\\\_work\\\\1\\\\s\\\\\
-    dist_temp\\\\61\\\\azure-storage-file-datalake-12.9.0b1\\\\samples\\\\datalake_samples_file_system.py\"\
-    , \"xml:space\": \"preserve\", \"force\": false, \"language\": \"python\", \"\
-    highlight_args\": {\"linenostart\": 1}, \"linenos\": false} -->\n\n````python\n\
-    \n   directory_client = file_system_client.create_directory(\"mydirectory\")\n\
-    \n   ````\n"
+    dist_temp\\\\61\\\\azure-storage-file-datalake-12.10.0a20230119003\\\\samples\\\
+    \\datalake_samples_file_system.py\", \"xml:space\": \"preserve\", \"force\": false,\
+    \ \"language\": \"python\", \"highlight_args\": {\"linenostart\": 1}, \"linenos\"\
+    : false} -->\n\n````python\n\n   directory_client = file_system_client.create_directory(\"\
+    mydirectory\")\n\n   ````\n"
 - uid: azure.storage.filedatalake.FileSystemClient.create_file
   name: create_file
   summary: Create file
@@ -491,10 +491,11 @@ methods:
   - "Create file in the file system.<!--[!code-python[Main](les\\datalake_samples_file_system.py\
     \ )]-->\n\n<!-- literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"\
     dupnames\": [], \"backrefs\": [], \"source\": \"D:\\\\a\\\\_work\\\\1\\\\s\\\\\
-    dist_temp\\\\61\\\\azure-storage-file-datalake-12.9.0b1\\\\samples\\\\datalake_samples_file_system.py\"\
-    , \"xml:space\": \"preserve\", \"force\": false, \"language\": \"python\", \"\
-    highlight_args\": {\"linenostart\": 1}, \"linenos\": false} -->\n\n````python\n\
-    \n   file_client = file_system_client.create_file(\"myfile\")\n\n   ````\n"
+    dist_temp\\\\61\\\\azure-storage-file-datalake-12.10.0a20230119003\\\\samples\\\
+    \\datalake_samples_file_system.py\", \"xml:space\": \"preserve\", \"force\": false,\
+    \ \"language\": \"python\", \"highlight_args\": {\"linenostart\": 1}, \"linenos\"\
+    : false} -->\n\n````python\n\n   file_client = file_system_client.create_file(\"\
+    myfile\")\n\n   ````\n"
 - uid: azure.storage.filedatalake.FileSystemClient.create_file_system
   name: create_file_system
   summary: 'Creates a new file system under the specified account.
@@ -544,7 +545,7 @@ methods:
   - "Creating a file system in the datalake service.<!--[!code-python[Main](les\\\
     datalake_samples_file_system.py )]-->\n\n<!-- literal_block {\"ids\": [], \"classes\"\
     : [], \"names\": [], \"dupnames\": [], \"backrefs\": [], \"source\": \"D:\\\\\
-    a\\\\_work\\\\1\\\\s\\\\dist_temp\\\\61\\\\azure-storage-file-datalake-12.9.0b1\\\
+    a\\\\_work\\\\1\\\\s\\\\dist_temp\\\\61\\\\azure-storage-file-datalake-12.10.0a20230119003\\\
     \\samples\\\\datalake_samples_file_system.py\", \"xml:space\": \"preserve\", \"\
     force\": false, \"language\": \"python\", \"highlight_args\": {\"linenostart\"\
     : 1}, \"linenos\": false} -->\n\n````python\n\n   file_system_client.create_file_system()\n\
@@ -617,10 +618,11 @@ methods:
   - "Delete directory in the file system.<!--[!code-python[Main](les\\datalake_samples_file_system.py\
     \ )]-->\n\n<!-- literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"\
     dupnames\": [], \"backrefs\": [], \"source\": \"D:\\\\a\\\\_work\\\\1\\\\s\\\\\
-    dist_temp\\\\61\\\\azure-storage-file-datalake-12.9.0b1\\\\samples\\\\datalake_samples_file_system.py\"\
-    , \"xml:space\": \"preserve\", \"force\": false, \"language\": \"python\", \"\
-    highlight_args\": {\"linenostart\": 1}, \"linenos\": false} -->\n\n````python\n\
-    \n   file_system_client.delete_directory(\"mydirectory\")\n\n   ````\n"
+    dist_temp\\\\61\\\\azure-storage-file-datalake-12.10.0a20230119003\\\\samples\\\
+    \\datalake_samples_file_system.py\", \"xml:space\": \"preserve\", \"force\": false,\
+    \ \"language\": \"python\", \"highlight_args\": {\"linenostart\": 1}, \"linenos\"\
+    : false} -->\n\n````python\n\n   file_system_client.delete_directory(\"mydirectory\"\
+    )\n\n   ````\n"
 - uid: azure.storage.filedatalake.FileSystemClient.delete_file
   name: delete_file
   summary: Marks the specified file for deletion.
@@ -689,10 +691,11 @@ methods:
   - "Delete file in the file system.<!--[!code-python[Main](les\\datalake_samples_file_system.py\
     \ )]-->\n\n<!-- literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"\
     dupnames\": [], \"backrefs\": [], \"source\": \"D:\\\\a\\\\_work\\\\1\\\\s\\\\\
-    dist_temp\\\\61\\\\azure-storage-file-datalake-12.9.0b1\\\\samples\\\\datalake_samples_file_system.py\"\
-    , \"xml:space\": \"preserve\", \"force\": false, \"language\": \"python\", \"\
-    highlight_args\": {\"linenostart\": 1}, \"linenos\": false} -->\n\n````python\n\
-    \n   file_system_client.delete_file(\"myfile\")\n\n   ````\n"
+    dist_temp\\\\61\\\\azure-storage-file-datalake-12.10.0a20230119003\\\\samples\\\
+    \\datalake_samples_file_system.py\", \"xml:space\": \"preserve\", \"force\": false,\
+    \ \"language\": \"python\", \"highlight_args\": {\"linenostart\": 1}, \"linenos\"\
+    : false} -->\n\n````python\n\n   file_system_client.delete_file(\"myfile\")\n\n\
+    \   ````\n"
 - uid: azure.storage.filedatalake.FileSystemClient.delete_file_system
   name: delete_file_system
   summary: 'Marks the specified file system for deletion.
@@ -758,7 +761,7 @@ methods:
   - "Deleting a file system in the datalake service.<!--[!code-python[Main](les\\\
     datalake_samples_file_system.py )]-->\n\n<!-- literal_block {\"ids\": [], \"classes\"\
     : [], \"names\": [], \"dupnames\": [], \"backrefs\": [], \"source\": \"D:\\\\\
-    a\\\\_work\\\\1\\\\s\\\\dist_temp\\\\61\\\\azure-storage-file-datalake-12.9.0b1\\\
+    a\\\\_work\\\\1\\\\s\\\\dist_temp\\\\61\\\\azure-storage-file-datalake-12.10.0a20230119003\\\
     \\samples\\\\datalake_samples_file_system.py\", \"xml:space\": \"preserve\", \"\
     force\": false, \"language\": \"python\", \"highlight_args\": {\"linenostart\"\
     : 1}, \"linenos\": false} -->\n\n````python\n\n   file_system_client.delete_file_system()\n\
@@ -784,8 +787,7 @@ methods:
     :rtype ~azure.storage.filedatalake.FileSystemClient'
   signature: 'from_connection_string(conn_str: str, file_system_name: str, credential:
     Optional[Union[str, Dict[str, str], AzureNamedKeyCredential, AzureSasCredential,
-    "TokenCredential"]] # pylint: disable=line-too-long = None, **kwargs: Any) ->
-    ClassType'
+    TokenCredential]] = None, **kwargs: Any) -> typing_extensions.Self'
   parameters:
   - name: conn_str
     description: A connection string to an Azure Storage account.
@@ -822,12 +824,12 @@ methods:
   - "Create FileSystemClient from connection string<!--[!code-python[Main](les\\datalake_samples_file_system.py\
     \ )]-->\n\n<!-- literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"\
     dupnames\": [], \"backrefs\": [], \"source\": \"D:\\\\a\\\\_work\\\\1\\\\s\\\\\
-    dist_temp\\\\61\\\\azure-storage-file-datalake-12.9.0b1\\\\samples\\\\datalake_samples_file_system.py\"\
-    , \"xml:space\": \"preserve\", \"force\": false, \"language\": \"python\", \"\
-    highlight_args\": {\"linenostart\": 1}, \"linenos\": false} -->\n\n````python\n\
-    \n   from azure.storage.filedatalake import FileSystemClient\n   file_system_client\
-    \ = FileSystemClient.from_connection_string(self.connection_string, \"filesystem\"\
-    )\n\n   ````\n"
+    dist_temp\\\\61\\\\azure-storage-file-datalake-12.10.0a20230119003\\\\samples\\\
+    \\datalake_samples_file_system.py\", \"xml:space\": \"preserve\", \"force\": false,\
+    \ \"language\": \"python\", \"highlight_args\": {\"linenostart\": 1}, \"linenos\"\
+    : false} -->\n\n````python\n\n   from azure.storage.filedatalake import FileSystemClient\n\
+    \   file_system_client = FileSystemClient.from_connection_string(self.connection_string,\
+    \ \"filesystem\")\n\n   ````\n"
 - uid: azure.storage.filedatalake.FileSystemClient.get_directory_client
   name: get_directory_client
   summary: 'Get a client to interact with the specified directory.
@@ -854,7 +856,7 @@ methods:
   - "Getting the directory client to interact with a specific directory.<!--[!code-python[Main](les\\\
     datalake_samples_file_system.py )]-->\n\n<!-- literal_block {\"ids\": [], \"classes\"\
     : [], \"names\": [], \"dupnames\": [], \"backrefs\": [], \"source\": \"D:\\\\\
-    a\\\\_work\\\\1\\\\s\\\\dist_temp\\\\61\\\\azure-storage-file-datalake-12.9.0b1\\\
+    a\\\\_work\\\\1\\\\s\\\\dist_temp\\\\61\\\\azure-storage-file-datalake-12.10.0a20230119003\\\
     \\samples\\\\datalake_samples_file_system.py\", \"xml:space\": \"preserve\", \"\
     force\": false, \"language\": \"python\", \"highlight_args\": {\"linenostart\"\
     : 1}, \"linenos\": false} -->\n\n````python\n\n   # Get the DataLakeDirectoryClient\
@@ -886,7 +888,7 @@ methods:
   - "Getting the file client to interact with a specific file.<!--[!code-python[Main](les\\\
     datalake_samples_file_system.py )]-->\n\n<!-- literal_block {\"ids\": [], \"classes\"\
     : [], \"names\": [], \"dupnames\": [], \"backrefs\": [], \"source\": \"D:\\\\\
-    a\\\\_work\\\\1\\\\s\\\\dist_temp\\\\61\\\\azure-storage-file-datalake-12.9.0b1\\\
+    a\\\\_work\\\\1\\\\s\\\\dist_temp\\\\61\\\\azure-storage-file-datalake-12.10.0a20230119003\\\
     \\samples\\\\datalake_samples_file_system.py\", \"xml:space\": \"preserve\", \"\
     force\": false, \"language\": \"python\", \"highlight_args\": {\"linenostart\"\
     : 1}, \"linenos\": false} -->\n\n````python\n\n   # Get the FileClient from the\
@@ -939,10 +941,11 @@ methods:
   - "Getting properties on the file system.<!--[!code-python[Main](les\\datalake_samples_file_system.py\
     \ )]-->\n\n<!-- literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"\
     dupnames\": [], \"backrefs\": [], \"source\": \"D:\\\\a\\\\_work\\\\1\\\\s\\\\\
-    dist_temp\\\\61\\\\azure-storage-file-datalake-12.9.0b1\\\\samples\\\\datalake_samples_file_system.py\"\
-    , \"xml:space\": \"preserve\", \"force\": false, \"language\": \"python\", \"\
-    highlight_args\": {\"linenostart\": 1}, \"linenos\": false} -->\n\n````python\n\
-    \n   properties = file_system_client.get_file_system_properties()\n\n   ````\n"
+    dist_temp\\\\61\\\\azure-storage-file-datalake-12.10.0a20230119003\\\\samples\\\
+    \\datalake_samples_file_system.py\", \"xml:space\": \"preserve\", \"force\": false,\
+    \ \"language\": \"python\", \"highlight_args\": {\"linenostart\": 1}, \"linenos\"\
+    : false} -->\n\n````python\n\n   properties = file_system_client.get_file_system_properties()\n\
+    \n   ````\n"
 - uid: azure.storage.filedatalake.FileSystemClient.get_paths
   name: get_paths
   summary: 'Returns a generator to list the paths(could be files or directories) under
@@ -998,11 +1001,11 @@ methods:
   - "List the paths in the file system.<!--[!code-python[Main](les\\datalake_samples_file_system.py\
     \ )]-->\n\n<!-- literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"\
     dupnames\": [], \"backrefs\": [], \"source\": \"D:\\\\a\\\\_work\\\\1\\\\s\\\\\
-    dist_temp\\\\61\\\\azure-storage-file-datalake-12.9.0b1\\\\samples\\\\datalake_samples_file_system.py\"\
-    , \"xml:space\": \"preserve\", \"force\": false, \"language\": \"python\", \"\
-    highlight_args\": {\"linenostart\": 1}, \"linenos\": false} -->\n\n````python\n\
-    \n   path_list = file_system_client.get_paths()\n   for path in path_list:\n \
-    \      print(path.name + '\\n')\n\n   ````\n"
+    dist_temp\\\\61\\\\azure-storage-file-datalake-12.10.0a20230119003\\\\samples\\\
+    \\datalake_samples_file_system.py\", \"xml:space\": \"preserve\", \"force\": false,\
+    \ \"language\": \"python\", \"highlight_args\": {\"linenostart\": 1}, \"linenos\"\
+    : false} -->\n\n````python\n\n   path_list = file_system_client.get_paths()\n\
+    \   for path in path_list:\n       print(path.name + '\\n')\n\n   ````\n"
 - uid: azure.storage.filedatalake.FileSystemClient.list_deleted_paths
   name: list_deleted_paths
   summary: 'Returns a generator to list the deleted (file or directory) paths under
@@ -1175,9 +1178,9 @@ methods:
   - "Setting metadata on the file system.<!--[!code-python[Main](les\\datalake_samples_file_system.py\
     \ )]-->\n\n<!-- literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"\
     dupnames\": [], \"backrefs\": [], \"source\": \"D:\\\\a\\\\_work\\\\1\\\\s\\\\\
-    dist_temp\\\\61\\\\azure-storage-file-datalake-12.9.0b1\\\\samples\\\\datalake_samples_file_system.py\"\
-    , \"xml:space\": \"preserve\", \"force\": false, \"language\": \"python\", \"\
-    highlight_args\": {\"linenostart\": 1}, \"linenos\": false} -->\n\n````python\n\
-    \n   # Create key, value pairs for metadata\n   metadata = {'type': 'test'}\n\n\
-    \   # Set metadata on the file system\n   file_system_client.set_file_system_metadata(metadata=metadata)\n\
+    dist_temp\\\\61\\\\azure-storage-file-datalake-12.10.0a20230119003\\\\samples\\\
+    \\datalake_samples_file_system.py\", \"xml:space\": \"preserve\", \"force\": false,\
+    \ \"language\": \"python\", \"highlight_args\": {\"linenostart\": 1}, \"linenos\"\
+    : false} -->\n\n````python\n\n   # Create key, value pairs for metadata\n   metadata\
+    \ = {'type': 'test'}\n\n   # Set metadata on the file system\n   file_system_client.set_file_system_metadata(metadata=metadata)\n\
     \n   ````\n"

@@ -11,12 +11,13 @@ constructor:
   syntax: 'CommandComponent(*, name: Optional[str] = None, version: Optional[str]
     = None, description: Optional[str] = None, tags: Optional[Dict] = None, display_name:
     Optional[str] = None, command: Optional[str] = None, code: Optional[str] = None,
-    environment: Optional[Union[str, azure.ai.ml.entities._assets.environment.Environment]]
-    = None, distribution: Optional[Union[azure.ai.ml.entities._job.distribution.PyTorchDistribution,
+    environment: Optional[Union[azure.ai.ml.entities._assets.environment.Environment,
+    str]] = None, distribution: Optional[Union[azure.ai.ml.entities._job.distribution.PyTorchDistribution,
     azure.ai.ml.entities._job.distribution.MpiDistribution, azure.ai.ml.entities._job.distribution.TensorFlowDistribution]]
     = None, resources: Optional[azure.ai.ml.entities._job.job_resource_configuration.JobResourceConfiguration]
     = None, inputs: Optional[Dict] = None, outputs: Optional[Dict] = None, instance_count:
-    Optional[int] = None, is_deterministic: bool = True, **kwargs)'
+    Optional[int] = None, is_deterministic: bool = True, properties: Optional[Dict]
+    = None, **kwargs)'
   parameters:
   - name: name
     description: Name of the component.
@@ -90,6 +91,12 @@ constructor:
     isRequired: true
     types:
     - <xref:bool>
+  - name: properties
+    description: Properties of the component. Contents inside will pass through to
+      backend as a dictionary.
+    isRequired: true
+    types:
+    - <xref:dict>
 attributes:
 - uid: azure.ai.ml.entities.CommandComponent.instance_count
   name: instance_count

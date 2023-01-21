@@ -22,8 +22,8 @@ summary: 'A client to interact with a specific directory, although it may not ye
 constructor:
   syntax: 'ShareDirectoryClient(account_url: str, share_name: str, directory_path:
     str, snapshot: Optional[Union[str, Dict[str, Any]]] = None, credential: Optional[Union[str,
-    Dict[str, str], AzureNamedKeyCredential, AzureSasCredential, "TokenCredential"]]
-    # pylint: disable=line-too-long = None, **kwargs: Optional[Any])'
+    Dict[str, str], AzureNamedKeyCredential, AzureSasCredential, TokenCredential]]
+    = None, **kwargs: Any)'
   parameters:
   - name: account_url
     description: 'The URI to the storage account. In order to create a client given
@@ -128,7 +128,7 @@ methods:
 - uid: azure.storage.fileshare.ShareDirectoryClient.close_handle
   name: close_handle
   summary: Close an open file handle.
-  signature: 'close_handle(handle: Union[str, HandleItem], **kwargs: Any) -> Dict[str,
+  signature: 'close_handle(handle: Union[str, Handle], **kwargs: Any) -> Dict[str,
     int]'
   parameters:
   - name: handle
@@ -219,7 +219,7 @@ methods:
   - "Creates a directory.<!--[!code-python[Main](les\\file_samples_directory.py )]-->\n\
     \n<!-- literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"dupnames\"\
     : [], \"backrefs\": [], \"source\": \"D:\\\\a\\\\_work\\\\1\\\\s\\\\dist_temp\\\
-    \\72\\\\azure-storage-file-share-12.10.0b1\\\\samples\\\\file_samples_directory.py\"\
+    \\72\\\\azure-storage-file-share-12.11.0a20230119003\\\\samples\\\\file_samples_directory.py\"\
     , \"xml:space\": \"preserve\", \"force\": false, \"language\": \"python\", \"\
     highlight_args\": {\"linenostart\": 1}, \"linenos\": false} -->\n\n````python\n\
     \n   my_directory.create_directory()\n\n   ````\n"
@@ -251,11 +251,12 @@ methods:
   - "Create a subdirectory.<!--[!code-python[Main](les\\file_samples_directory.py\
     \ )]-->\n\n<!-- literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"\
     dupnames\": [], \"backrefs\": [], \"source\": \"D:\\\\a\\\\_work\\\\1\\\\s\\\\\
-    dist_temp\\\\72\\\\azure-storage-file-share-12.10.0b1\\\\samples\\\\file_samples_directory.py\"\
-    , \"xml:space\": \"preserve\", \"force\": false, \"language\": \"python\", \"\
-    highlight_args\": {\"linenostart\": 1}, \"linenos\": false} -->\n\n````python\n\
-    \n   # Create the directory\n   parent_dir.create_directory()\n\n   # Create a\
-    \ subdirectory\n   subdir = parent_dir.create_subdirectory(\"subdir\")\n\n   ````\n"
+    dist_temp\\\\72\\\\azure-storage-file-share-12.11.0a20230119003\\\\samples\\\\\
+    file_samples_directory.py\", \"xml:space\": \"preserve\", \"force\": false, \"\
+    language\": \"python\", \"highlight_args\": {\"linenostart\": 1}, \"linenos\"\
+    : false} -->\n\n````python\n\n   # Create the directory\n   parent_dir.create_directory()\n\
+    \n   # Create a subdirectory\n   subdir = parent_dir.create_subdirectory(\"subdir\"\
+    )\n\n   ````\n"
 - uid: azure.storage.fileshare.ShareDirectoryClient.delete_directory
   name: delete_directory
   summary: 'Marks the directory for deletion. The directory is
@@ -274,7 +275,7 @@ methods:
   - "Deletes a directory.<!--[!code-python[Main](les\\file_samples_directory.py )]-->\n\
     \n<!-- literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"dupnames\"\
     : [], \"backrefs\": [], \"source\": \"D:\\\\a\\\\_work\\\\1\\\\s\\\\dist_temp\\\
-    \\72\\\\azure-storage-file-share-12.10.0b1\\\\samples\\\\file_samples_directory.py\"\
+    \\72\\\\azure-storage-file-share-12.11.0a20230119003\\\\samples\\\\file_samples_directory.py\"\
     , \"xml:space\": \"preserve\", \"force\": false, \"language\": \"python\", \"\
     highlight_args\": {\"linenostart\": 1}, \"linenos\": false} -->\n\n````python\n\
     \n   my_directory.delete_directory()\n\n   ````\n"
@@ -301,10 +302,10 @@ methods:
   - "Delete a file in a directory.<!--[!code-python[Main](les\\file_samples_directory.py\
     \ )]-->\n\n<!-- literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"\
     dupnames\": [], \"backrefs\": [], \"source\": \"D:\\\\a\\\\_work\\\\1\\\\s\\\\\
-    dist_temp\\\\72\\\\azure-storage-file-share-12.10.0b1\\\\samples\\\\file_samples_directory.py\"\
-    , \"xml:space\": \"preserve\", \"force\": false, \"language\": \"python\", \"\
-    highlight_args\": {\"linenostart\": 1}, \"linenos\": false} -->\n\n````python\n\
-    \n   # Delete the file in the directory\n   my_directory.delete_file(file_name=\"\
+    dist_temp\\\\72\\\\azure-storage-file-share-12.11.0a20230119003\\\\samples\\\\\
+    file_samples_directory.py\", \"xml:space\": \"preserve\", \"force\": false, \"\
+    language\": \"python\", \"highlight_args\": {\"linenostart\": 1}, \"linenos\"\
+    : false} -->\n\n````python\n\n   # Delete the file in the directory\n   my_directory.delete_file(file_name=\"\
     sample\")\n\n   ````\n"
 - uid: azure.storage.fileshare.ShareDirectoryClient.delete_subdirectory
   name: delete_subdirectory
@@ -327,10 +328,11 @@ methods:
   - "Delete a subdirectory.<!--[!code-python[Main](les\\file_samples_directory.py\
     \ )]-->\n\n<!-- literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"\
     dupnames\": [], \"backrefs\": [], \"source\": \"D:\\\\a\\\\_work\\\\1\\\\s\\\\\
-    dist_temp\\\\72\\\\azure-storage-file-share-12.10.0b1\\\\samples\\\\file_samples_directory.py\"\
-    , \"xml:space\": \"preserve\", \"force\": false, \"language\": \"python\", \"\
-    highlight_args\": {\"linenostart\": 1}, \"linenos\": false} -->\n\n````python\n\
-    \n   parent_dir.delete_subdirectory(\"subdir\")\n\n   ````\n"
+    dist_temp\\\\72\\\\azure-storage-file-share-12.11.0a20230119003\\\\samples\\\\\
+    file_samples_directory.py\", \"xml:space\": \"preserve\", \"force\": false, \"\
+    language\": \"python\", \"highlight_args\": {\"linenostart\": 1}, \"linenos\"\
+    : false} -->\n\n````python\n\n   parent_dir.delete_subdirectory(\"subdir\")\n\n\
+    \   ````\n"
 - uid: azure.storage.fileshare.ShareDirectoryClient.exists
   name: exists
   summary: Returns True if a directory exists and returns False otherwise.
@@ -349,8 +351,7 @@ methods:
   summary: Create ShareDirectoryClient from a Connection String.
   signature: 'from_connection_string(conn_str: str, share_name: str, directory_path:
     str, credential: Optional[Union[str, Dict[str, str], AzureNamedKeyCredential,
-    AzureSasCredential, "TokenCredential"]] # pylint: disable=line-too-long = None,
-    **kwargs: Any) -> ShareDirectoryClient'
+    AzureSasCredential, TokenCredential]] = None, **kwargs: Any) -> typing_extensions.Self'
   parameters:
   - name: conn_str
     description: A connection string to an Azure Storage account.
@@ -423,8 +424,7 @@ methods:
     :rtype: ~azure.storage.fileshare.ShareDirectoryClient'
   signature: 'from_directory_url(directory_url: str, snapshot: Optional[Union[str,
     Dict[str, Any]]] = None, credential: Optional[Union[str, Dict[str, str], AzureNamedKeyCredential,
-    AzureSasCredential, "TokenCredential"]] # pylint: disable=line-too-long = None,
-    **kwargs: Optional[Any]) -> ShareDirectoryClient'
+    AzureSasCredential, TokenCredential]] = None, **kwargs: Any) -> typing_extensions.Self'
   parameters:
   - name: directory_url
     description: The full URI to the directory.
@@ -494,13 +494,14 @@ methods:
   - "Gets the subdirectory client.<!--[!code-python[Main](les\\file_samples_directory.py\
     \ )]-->\n\n<!-- literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"\
     dupnames\": [], \"backrefs\": [], \"source\": \"D:\\\\a\\\\_work\\\\1\\\\s\\\\\
-    dist_temp\\\\72\\\\azure-storage-file-share-12.10.0b1\\\\samples\\\\file_samples_directory.py\"\
-    , \"xml:space\": \"preserve\", \"force\": false, \"language\": \"python\", \"\
-    highlight_args\": {\"linenostart\": 1}, \"linenos\": false} -->\n\n````python\n\
-    \n   # Get a directory client and create the directory\n   parent = share.get_directory_client(\"\
-    dir1\")\n   parent.create_directory()\n\n   # Get a subdirectory client and create\
-    \ the subdirectory \"dir1/dir2\"\n   subdirectory = parent.get_subdirectory_client(\"\
-    dir2\")\n   subdirectory.create_directory()\n\n   ````\n"
+    dist_temp\\\\72\\\\azure-storage-file-share-12.11.0a20230119003\\\\samples\\\\\
+    file_samples_directory.py\", \"xml:space\": \"preserve\", \"force\": false, \"\
+    language\": \"python\", \"highlight_args\": {\"linenostart\": 1}, \"linenos\"\
+    : false} -->\n\n````python\n\n   # Get a directory client and create the directory\n\
+    \   parent = share.get_directory_client(\"dir1\")\n   parent.create_directory()\n\
+    \n   # Get a subdirectory client and create the subdirectory \"dir1/dir2\"\n \
+    \  subdirectory = parent.get_subdirectory_client(\"dir2\")\n   subdirectory.create_directory()\n\
+    \n   ````\n"
 - uid: azure.storage.fileshare.ShareDirectoryClient.list_directories_and_files
   name: list_directories_and_files
   summary: Lists all the directories and files under the directory.
@@ -549,11 +550,12 @@ methods:
   - "List directories and files.<!--[!code-python[Main](les\\file_samples_directory.py\
     \ )]-->\n\n<!-- literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"\
     dupnames\": [], \"backrefs\": [], \"source\": \"D:\\\\a\\\\_work\\\\1\\\\s\\\\\
-    dist_temp\\\\72\\\\azure-storage-file-share-12.10.0b1\\\\samples\\\\file_samples_directory.py\"\
-    , \"xml:space\": \"preserve\", \"force\": false, \"language\": \"python\", \"\
-    highlight_args\": {\"linenostart\": 1}, \"linenos\": false} -->\n\n````python\n\
-    \n   # List the directories and files under the parent directory\n   my_list =\
-    \ list(parent_dir.list_directories_and_files())\n   print(my_list)\n\n   ````\n"
+    dist_temp\\\\72\\\\azure-storage-file-share-12.11.0a20230119003\\\\samples\\\\\
+    file_samples_directory.py\", \"xml:space\": \"preserve\", \"force\": false, \"\
+    language\": \"python\", \"highlight_args\": {\"linenostart\": 1}, \"linenos\"\
+    : false} -->\n\n````python\n\n   # List the directories and files under the parent\
+    \ directory\n   my_list = list(parent_dir.list_directories_and_files())\n   print(my_list)\n\
+    \n   ````\n"
 - uid: azure.storage.fileshare.ShareDirectoryClient.list_handles
   name: list_handles
   summary: Lists opened handles on a directory or a file under the directory.
@@ -572,9 +574,9 @@ methods:
     types:
     - <xref:int>
   return:
-    description: An auto-paging iterable of HandleItem
+    description: An auto-paging iterable of Handle
     types:
-    - <xref:azure.core.paging.ItemPaged>[<xref:azure.storage.fileshare.HandleItem>]
+    - <xref:azure.core.paging.ItemPaged>[<xref:azure.storage.fileshare.Handle>]
 - uid: azure.storage.fileshare.ShareDirectoryClient.rename_directory
   name: rename_directory
   summary: "Rename the source directory.\n\n:paramtype file_attributes:~azure.storage.fileshare.NTFSAttributes\
@@ -708,8 +710,8 @@ methods:
   summary: 'Creates a new file in the directory and returns a ShareFileClient
 
     to interact with the file.'
-  signature: 'upload_file(file_name: str, data: Any, length: Optional[int] = None,
-    **kwargs: Any) -> azure.storage.fileshare._file_client.ShareFileClient'
+  signature: 'upload_file(file_name: str, data: Union[bytes, str, Iterable, IO], length:
+    Optional[int] = None, **kwargs) -> azure.storage.fileshare._file_client.ShareFileClient'
   parameters:
   - name: file_name
     description: The name of the file.
@@ -719,8 +721,6 @@ methods:
   - name: data
     description: Content of the file.
     isRequired: true
-    types:
-    - <xref:Any>
   - name: length
     description: Length of the file in bytes. Specify its maximum size, up to 1 TiB.
     isRequired: true
@@ -782,8 +782,9 @@ methods:
   - "Upload a file to a directory.<!--[!code-python[Main](les\\file_samples_directory.py\
     \ )]-->\n\n<!-- literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"\
     dupnames\": [], \"backrefs\": [], \"source\": \"D:\\\\a\\\\_work\\\\1\\\\s\\\\\
-    dist_temp\\\\72\\\\azure-storage-file-share-12.10.0b1\\\\samples\\\\file_samples_directory.py\"\
-    , \"xml:space\": \"preserve\", \"force\": false, \"language\": \"python\", \"\
-    highlight_args\": {\"linenostart\": 1}, \"linenos\": false} -->\n\n````python\n\
-    \n   # Upload a file to the directory\n   with open(SOURCE_FILE, \"rb\") as source:\n\
-    \       my_directory.upload_file(file_name=\"sample\", data=source)\n\n   ````\n"
+    dist_temp\\\\72\\\\azure-storage-file-share-12.11.0a20230119003\\\\samples\\\\\
+    file_samples_directory.py\", \"xml:space\": \"preserve\", \"force\": false, \"\
+    language\": \"python\", \"highlight_args\": {\"linenostart\": 1}, \"linenos\"\
+    : false} -->\n\n````python\n\n   # Upload a file to the directory\n   with open(SOURCE_FILE,\
+    \ \"rb\") as source:\n       my_directory.upload_file(file_name=\"sample\", data=source)\n\
+    \n   ````\n"
